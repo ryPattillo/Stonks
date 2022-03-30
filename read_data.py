@@ -22,9 +22,7 @@ keys = [
 def get_data():
     '''
     Get dataset of x,y values
-    
     '''
-
     # open data file
     try:
         stock_data = open("stock_data.txt","r")

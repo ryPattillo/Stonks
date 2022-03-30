@@ -1,4 +1,4 @@
-import tensorflow as tf
+# import tensorflow as tf
 from read_data import get_data, dataset_split
 
 if __name__ == "__main__":
