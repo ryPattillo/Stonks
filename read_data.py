@@ -62,7 +62,7 @@ def get_data():
 
         values = entry.split(',')
         x_values.append(np.array([float(values[i]) for i in numeric_idx]))
-        y_values.append(float(values.pop(12)))
+        y_values.append(1 if float(values.pop(12)) > 20 else 0)
 
 
         # # profile = finnhub_client.company_profile2(symbol=values[1])
@@ -72,6 +72,6 @@ def get_data():
         # calls += 1
 
         
-    return np.array(x_values),np.array(y_values)/200,attributes
+    return np.array(x_values),np.array(y_values),attributes
 
 
