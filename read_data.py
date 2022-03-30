@@ -1,25 +1,33 @@
+import finnhub
+import time
+
 '''
 NOTE: here is a list of all the keys in the dataset
 keys = [
-    "quarter",
-    "stock",
-    "date",
-    "open",
-    "high",
-    "low",
-    "close",
-    "volume",
-    "percent_change_price",
-    "percent_change_volume_over_last_wk",
-    "previous_weeks_volume",
-    "next_weeks_open",
-    "percent_change_next_weeks_price",
-    "days_to_next_dividend",
-    "percent_return_next_dividend"
+    0 - "quarter",
+    1 - "stock",
+    2 - "date",
+    3 - "open",
+    4 - "high",
+    5 - "low",
+    6 - "close",
+    7 - "volume",
+    8 - "percent_change_price",
+    9 - "percent_change_volume_over_last_wk", [pcw]
+    10 - "previous_weeks_volume",
+    11 - "next_weeks_open",
+    12 - "percent_change_next_weeks_price",
+    13 - "days_to_next_dividend",
+    14 - "percent_return_next_dividend"
 ]
 '''
 
+
 def get_data():
+    finnhub_client = finnhub.Client(api_key="c004igf48v6v49v27a2g")
+
+    #print(finnhub_client.company_profile2(symbol='AAPL'))
+
     '''
     Get dataset of x,y values
     '''
@@ -29,13 +37,13 @@ def get_data():
     except:
         print("Error opening file")
 
-    # keep a list of the stock data
-
     # the first row contains all the attribute names
     first_row = True
 
     y_values = []
     x_values = []
+
+    calls = 0
 
     for entry in stock_data:
         if first_row:
@@ -43,7 +51,19 @@ def get_data():
             first_row = False
             continue
     
+        if calls == 59:
+            time.sleep(60)
+            calls = 0
+
+
         values = entry.split(',')
+        profile = finnhub_client.company_profile2(symbol=values[1])
+        if profile is not None:
+            industry = profile['finnhubIndustry']
+            print(industry)
+        calls += 1
+
+        
         x_values.append(values)
         y_values.append(values.pop(14))
 

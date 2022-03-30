@@ -1,4 +1,4 @@
-# import tensorflow as tf
+import tensorflow as tf
 from read_data import get_data, dataset_split
 
 if __name__ == "__main__":
@@ -15,9 +15,9 @@ if __name__ == "__main__":
     x_train, x_test ,x_val = dataset_split(x_values,train_split,test_split,val_split)
     y_train, y_test ,y_val = dataset_split(y_values,train_split,test_split,val_split)
 
-    '''
-    NOTE: Here is example neural network code
-    TODO: Figure out how to encode the data and the network structure
+    
+    #NOTE: Here is example neural network code
+    #TODO: Figure out how to encode the data and the network structure
 
     model = tf.keras.models.Sequential([
     tf.keras.layers.Flatten(input_shape=(15, 1)),
@@ -32,4 +32,3 @@ if __name__ == "__main__":
 
     model.fit(x_train, y_train, epochs=5)
     model.evaluate(x_test, y_test)
-    '''
