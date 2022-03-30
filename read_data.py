@@ -1,7 +1,7 @@
 '''
 NOTE: here is a list of all the keys in the dataset
 keys = [
-    "quarter"
+    "quarter",
     "stock",
     "date",
     "open",
