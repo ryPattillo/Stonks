@@ -10,11 +10,11 @@ Extra Credit Project for CAP4630
 ## To-Do's
 Project Title:
 
-Step 1: Prepare data set
+<s>Step 1: Prepare data set
 
 Create training/validation/test dataframes (not needed if using artificial dataset)
 Balance training data set
-Preprocess data
+Preprocess data</s>
 
 Step 2: Analyze the Data
 
