@@ -59,3 +59,4 @@ def main():
     if choice == 'y':
         path = input("type the path the model should be saved to")
         model.save(path)
+main()
