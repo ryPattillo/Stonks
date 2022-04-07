@@ -50,12 +50,12 @@ def main():
     
     # choose next steps after model training
     print("Would you like to display loss charts?")
-    choice = input("[y] yes, [n] no")
+    choice = input("[y] yes, [n] no\n")
     if choice == 'y':
         graph_loss(np.arange(0,EPOCHS),history.history['loss'])
 
     print("Would you like to save the model?")
-    choice = input("[y] yes, [n] no")
+    choice = input("[y] yes, [n] no\n")
     if choice == 'y':
         path = input("type the path the model should be saved to")
         model.save(path)
