@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from visualize import graph_loss
 
-if __name__ == "__main__":
+def main():
 
     # required dimensions
     INPUT_DIM = (13,1)
